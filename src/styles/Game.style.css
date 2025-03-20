@@ -1,0 +1,17 @@
+.game-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.rolls-left {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.game-message {
+  font-size: 20px;
+  font-weight: bold;
+  color: #d9534f;
+  margin-top: 15px;
+}

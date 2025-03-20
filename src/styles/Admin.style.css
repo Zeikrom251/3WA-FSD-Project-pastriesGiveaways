@@ -1,0 +1,108 @@
+.admin-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.admin-page h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.add-pastry-btn {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.add-pastry-btn:hover {
+  background-color: #45a049;
+}
+
+.pastries-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.pastries-table th,
+.pastries-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.pastries-table th {
+  background-color: #f2f2f2;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.pastries-table td {
+  background-color: white;
+  font-size: 1rem;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.action-buttons button {
+  padding: 5px 10px;
+  background-color: #ff7043;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.action-buttons button:hover {
+  background-color: #e64a19;
+}
+
+.edit-btn {
+  background-color: #ff9800;
+}
+
+.edit-btn:hover {
+  background-color: #f57c00;
+}
+
+.delete-btn {
+  background-color: #f44336;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+.pastries-table tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.modal-container {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
