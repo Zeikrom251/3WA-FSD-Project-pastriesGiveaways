@@ -5,7 +5,7 @@ const rollNewDice = () =>
 
 const initialState = {
   diceValues: [1, 1, 1, 1, 1],
-  rollsLeft: 10,
+  rollsLeft: 3,
   message: "",
   pastryWon: null,
   hasWon: false,
@@ -69,7 +69,7 @@ const gameSlice = createSlice({
     },
     resetGame: (state) => {
       state.diceValues = [1, 1, 1, 1, 1]
-      state.rollsLeft = 10
+      state.rollsLeft = 3
       state.message = ""
       state.pastryWon = null
       state.pastriesWon = 1
