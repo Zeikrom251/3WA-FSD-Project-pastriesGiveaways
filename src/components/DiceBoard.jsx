@@ -61,6 +61,15 @@ const DiceBoard = () => {
 
   return (
     <div className="dice-board">
+      <h1>Jeu du Yams</h1>
+      <p>
+        Vous avez 3 lancés. <br />
+        Si vous obtenez une paire (deux dés identiques), vous gagnez 1
+        pâtisserie. <br />
+        Avec un Berlan (trois dés identiques), c'est 2 pâtisseries. <br />
+        Et en cas de carré (quatre dés identiques), vous remportez 3
+        pâtisseries.
+      </p>
       <div className="dice-container">
         {diceValues.map((value, index) => (
           <Dice key={index} value={value} />

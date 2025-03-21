@@ -4,6 +4,7 @@ import { useGetUsersQuery, useLoginMutation } from "../services/usersApi"
 import { useEffect, useState } from "react"
 import { loginFailure, loginSuccess } from "../store/slice/authSlice"
 import "../styles/Login.style.css"
+import Header from "../components/Header"
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -47,31 +48,34 @@ const Login = () => {
   }
 
   return (
-    <div className="login-container">
-      <h3>Connexion</h3>
-      {isLoading || isLoading ? <p>Chargement...</p> : null}
-      {error && <p className="error">Erreur de chargement...</p>}
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Mot de passe"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" disabled={loading}>
-          Se connecter
-        </button>
-      </form>
-      {authError && <p className="error">{authError}</p>}
-    </div>
+    <>
+      <Header />
+      <div className="login-container">
+        <h3>Connexion</h3>
+        {isLoading || isLoading ? <p>Chargement...</p> : null}
+        {error && <p className="error">Erreur de chargement...</p>}
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit" disabled={loading}>
+            Se connecter
+          </button>
+        </form>
+        {authError && <p className="error">{authError}</p>}
+      </div>
+    </>
   )
 }
 

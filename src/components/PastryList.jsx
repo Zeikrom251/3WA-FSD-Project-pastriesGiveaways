@@ -9,7 +9,7 @@ const PastryList = () => {
 
   return (
     <div className="pastry-list">
-      <h1>Lots de pâtisseries à gagner</h1>
+      <h3>Lots restants :</h3>
       <div className="pastry-grid">
         {pastries.map((pastry) => (
           <div key={pastry.id} className="pastry-item">

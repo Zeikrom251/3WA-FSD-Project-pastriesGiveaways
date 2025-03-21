@@ -6,7 +6,6 @@ const Game = () => {
     <>
       <Header />
       <div className="game-container">
-        <h1>🎲 Jeu de dés : Gagnez des Pâtisseries !</h1>
         <DiceBoard />
       </div>
     </>

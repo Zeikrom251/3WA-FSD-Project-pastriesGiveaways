@@ -13,6 +13,24 @@
   margin: 0 auto;
 }
 
+.dice-board h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #373737;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dice-board p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .dice-container {
   display: flex;
   gap: 15px;
