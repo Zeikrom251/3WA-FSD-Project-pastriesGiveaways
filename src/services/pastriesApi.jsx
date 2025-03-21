@@ -2,27 +2,30 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 export const pastriesApi = createApi({
   reducerPath: "pastriesApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/game" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "http://localhost:3001",
+    credentials: "include",
+  }),
   endpoints: (builder) => ({
     getPastries: builder.query({
-      query: () => "/pastries",
+      query: () => "/game/pastries",
     }),
     addPastry: builder.mutation({
       query: (newPastry) => ({
-        url: "/pastrie",
+        url: "/api/pastrie",
         method: "POST",
         body: newPastry,
       }),
     }),
     deletePastry: builder.mutation({
       query: (id) => ({
-        url: `/pastrie/${id}`,
+        url: `/api/pastrie/${id}`,
         method: "DELETE",
       }),
     }),
     updatePastry: builder.mutation({
       query: (updatePastry) => ({
-        url: `/pastrie/${updatePastry.id}`,
+        url: `/api/pastrie/${updatePastry.id}`,
         method: "PUT",
         body: updatePastry,
       }),

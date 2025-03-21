@@ -1,4 +1,3 @@
-import { useState } from "react"
 import {
   useAddPastryMutation,
   useDeletePastryMutation,
@@ -10,22 +9,29 @@ import EditPastryForm from "../components/EditPastryForm"
 import PastriesTable from "../components/PastriesTable"
 import "../styles/Admin.style.css"
 import Header from "../components/Header"
+import { useDispatch, useSelector } from "react-redux"
+import {
+  setShowAddForm,
+  setShowEditForm,
+  setCurrentPastry,
+} from "../store/slice/pastrySlice"
 
 const Admin = () => {
+  const dispatch = useDispatch()
   const { data: pastries, refetch } = useGetPastriesQuery()
   const [addPastry] = useAddPastryMutation()
   const [deletePastry] = useDeletePastryMutation()
   const [updatePastry] = useUpdatePastryMutation()
 
-  const [showAddForm, setShowAddForm] = useState(false)
-  const [showEditForm, setShowEditForm] = useState(false)
-  const [currentPastry, setCurrentPastry] = useState(null)
+  const { showAddForm, showEditForm, currentPastry } = useSelector(
+    (state) => state.pastries
+  )
 
-  const handleAddPastry = async (e) => {
-    e.preventDefault()
+  const handleAddPastry = async (pastryData) => {
     try {
-      await addPastry(newPastry)
+      await addPastry(pastryData).unwrap()
       refetch()
+      dispatch(setShowAddForm(false))
     } catch (error) {
       console.error("Erreur lors de l'ajout :", error)
     }
@@ -33,17 +39,18 @@ const Admin = () => {
 
   const handleDeletePastry = async (id) => {
     try {
-      await deletePastry(id)
+      await deletePastry(id).unwrap()
       refetch()
     } catch (error) {
       console.error("Erreur lors de la suppression :", error)
     }
   }
 
-  const handleEditPastry = async (updatePastry) => {
+  const handleEditPastry = async (editedPastry) => {
     try {
-      await updatePastry(updatePastry)
+      await updatePastry({ id: editedPastry.id, ...editedPastry }).unwrap()
       refetch()
+      dispatch(setShowEditForm(false))
     } catch (error) {
       console.error("Erreur lors de la modification :", error)
     }
@@ -54,13 +61,15 @@ const Admin = () => {
       <Header />
       <div className="admin-page">
         <h2>Admin - Gestion des Pâtisseries</h2>
-        <button className="add-pastry-btn" onClick={() => setShowAddForm(true)}>
+        <button
+          className="add-pastry-btn"
+          onClick={() => dispatch(setShowAddForm(true))}>
           Ajouter une Pâtisserie
         </button>
 
         {showAddForm && (
           <AddPastryForm
-            onClose={() => setShowAddForm(false)}
+            onClose={() => dispatch(setShowAddForm(false))}
             onAddPastry={handleAddPastry}
           />
         )}
@@ -68,7 +77,7 @@ const Admin = () => {
         {showEditForm && (
           <EditPastryForm
             pastry={currentPastry}
-            onClose={() => setShowEditForm(false)}
+            onClose={() => dispatch(setShowEditForm(false))}
             onEditPastry={handleEditPastry}
           />
         )}
@@ -79,8 +88,8 @@ const Admin = () => {
               pastries={pastries}
               onDelete={handleDeletePastry}
               onEdit={(pastry) => {
-                setCurrentPastry(pastry)
-                setShowEditForm(true)
+                dispatch(setCurrentPastry(pastry))
+                dispatch(setShowEditForm(true))
               }}
             />
           </div>

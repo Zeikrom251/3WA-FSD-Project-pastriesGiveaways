@@ -25,6 +25,7 @@ const EditPastryForm = ({ pastry, onClose, onEditPastry }) => {
           <input
             type="text"
             value={editedPastry.name}
+            placeholder="Nom de la Pâtisserie"
             onChange={(e) =>
               setEditedPastry({ ...editedPastry, name: e.target.value })
             }
@@ -33,6 +34,7 @@ const EditPastryForm = ({ pastry, onClose, onEditPastry }) => {
           <input
             type="text"
             value={editedPastry.image}
+            placeholder="Image URL de la Pâtisserie"
             onChange={(e) =>
               setEditedPastry({ ...editedPastry, image: e.target.value })
             }
@@ -41,6 +43,7 @@ const EditPastryForm = ({ pastry, onClose, onEditPastry }) => {
           <input
             type="number"
             value={editedPastry.quantity}
+            placeholder="Quantité"
             onChange={(e) =>
               setEditedPastry({ ...editedPastry, quantity: e.target.value })
             }

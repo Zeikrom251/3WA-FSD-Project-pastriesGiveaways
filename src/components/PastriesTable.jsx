@@ -22,7 +22,7 @@ const PastriesTable = ({ pastries, onDelete, onEdit }) => {
             <td>{pastry.name}</td>
             <td>{pastry.quantity}</td>
             <td>
-              <button onClick={() => onEdit(pastry.id)}>Modifier</button>
+              <button onClick={() => onEdit(pastry)}>Modifier</button>
               <button onClick={() => onDelete(pastry.id)}>Supprimer</button>
             </td>
           </tr>

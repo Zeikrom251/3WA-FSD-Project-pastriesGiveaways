@@ -19,15 +19,7 @@
         "id": "5",
         "name": "Cake glacé fondant au chocolat",
         "image": "cake-glace.jpg",
-        "quantity": 0,
-        "quantityWon": 4,
-        "choice": true
-    },
-    {
-        "id": "2",
-        "name": "Cake tout Chocolat",
-        "image": "cake-tout-chocolat.jpg",
-        "quantity": 0,
+        "quantity": "3",
         "quantityWon": 4,
         "choice": true
     },
@@ -42,7 +34,7 @@
     {
         "id": "6",
         "name": "Eclairs au chocolat",
-        "image": "eclair-chocolat.jfif",
+        "image": "eclair-chocolat.jpg",
         "quantity": 5,
         "quantityWon": 10,
         "choice": true
