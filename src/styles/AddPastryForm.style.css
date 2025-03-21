@@ -63,18 +63,30 @@
 
 .addPastryForm-content .close-btn {
   position: absolute;
-  top: 15px;
+  top: 0;
   right: 15px;
-  font-size: 22px;
-  background: none;
+  font-size: 18px;
+  background: #ff4d4d;
   border: none;
   cursor: pointer;
-  color: #666;
-  transition: color 0.3s;
+  color: white;
+  transition: background 0.3s, transform 0.2s;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .addPastryForm-content .close-btn:hover {
-  color: #333;
+  background: #d43f3f;
+  transform: scale(1.1);
+}
+
+.addPastryForm-content .close-btn:active {
+  transform: scale(0.9);
 }
 
 @keyframes fadeIn {
